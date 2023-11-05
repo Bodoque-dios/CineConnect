@@ -1,35 +1,48 @@
 import React from "react";
 
-export default function Card() {
-	const Genres = [
-		"Action",
-		"Adventure",
-		"Animation",
-		"Biography",
-		"Comedy",
-		"Crime",
-		"Documentary",
-		"Drama",
-		"Family",
-		"Fantasy",
-		"Film Noir",
-		"History",
-		"Horror",
-		"Music",
-		"Musical",
-		"Mystery",
-		"Romance",
-		"Sci-Fi",
-		"Short Film",
-		"Sport",
-		"Superhero",
-		"Thriller",
-		"War",
-		"Western",
-	];
 
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+
+
+
+export default function Card() {
+    // Quizas cambiar los colores pq ta feo
+    const Genres = {
+        Action: "bg-red-500",
+        Adventure: "bg-blue-500",
+        Animation: "bg-green-500",
+        Biography: "bg-purple-500",
+        Comedy: "bg-yellow-500",
+        Crime: "bg-pink-500",
+        Documentary: "bg-indigo-500",
+        Drama: "bg-teal-500",
+        Family: "bg-cyan-500",
+        Fantasy: "bg-orange-500",
+        FilmNoir: "bg-lime-500",
+        History: "bg-red-600",
+        Horror: "bg-blue-600",
+        Music: "bg-green-600",
+        Musical: "bg-purple-600",
+        Mystery: "bg-yellow-600",
+        Romance: "bg-pink-600",
+        SciFi: "bg-indigo-600",
+        ShortFilm: "bg-teal-600",
+        Sport: "bg-cyan-600",
+        Superhero: "bg-orange-600",
+        Thriller: "bg-lime-600",
+        War: "bg-red-700",
+        Western: "bg-blue-700",
+    };
+      
 	// Select a random genre once
-	const randomGenre = () => Genres[Math.floor(Math.random() * Genres.length)];
+	const randomGenre = () => {
+        const keys = Object.keys(Genres);
+        const RandomKey = keys[Math.floor(Math.random() * keys.length)];
+        return [RandomKey,Genres[RandomKey]];
+    }
 
 	return (
 		<div className="m-auto bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600 rounded-2xl p-4 text-white w-72 flex flex-col justify-center grow-0">
@@ -43,7 +56,7 @@ export default function Card() {
 					alt=""
 				/>
 				<div className="Tags py-2 flex absolute bottom-2">
-					{/* Use the same random genre for all tags in the card */}
+					{/* Falta ver el overflow*/}
 					{Array(3)
 						.fill()
 						.map((_, index) => (
@@ -68,8 +81,8 @@ export default function Card() {
 function Tag({ tag }) {
 	// seleccionar un color aleatorio
 	return (
-		<div className="bg-red-500 rounded-full p-1 mx-2">
-			<h3 className="font-semibold text-center text-xs">{tag}</h3>
+		<div className= {`rounded-full p-1 mx-2 ${tag[1]}`}>
+			<h3 className="font-semibold text-center text-xs">{tag[0]}</h3>
 		</div>
 	);
 }
@@ -80,7 +93,7 @@ function Controls() {
 			<button className="bg-violet-900 rounded-full p-2 m-2">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					className="icon icon-tabler icon-tabler-thumb-up"
+					className="icon icon-tabler icon-tabler-thumb-up stroke-white"
 					width="24"
 					height="24"
 					viewBox="0 0 24 24"
