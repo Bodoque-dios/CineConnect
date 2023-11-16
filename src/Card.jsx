@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 // import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
 // register Swiper custom elements
@@ -79,6 +78,21 @@ export default function Card() {
     });
   };
 
+
+const url = 'https://api.themoviedb.org/3/movie/12/images';
+/*const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjVjNzRhNjUwYzMyZmY5YzkzOGQ3NmE0ZTFkYTYxNCIsInN1YiI6IjY1NTYzODRmMDgxNmM3MDExYTBjNGNjMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.I3NmkHWwFLjYaNcRQywFtJYgHrWItIaYvY34cIwOrEI'
+  }
+};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error('error:' + err));
+*/  
   return (
     <div
       onMouseDown={handleMouseDown}
@@ -91,19 +105,23 @@ export default function Card() {
       className="m-auto flex w-72 grow-0 flex-col justify-center rounded-2xl bg--800  backdrop-opacity-5 backdrop-invert bg-white/5 p-4 text-white"
     >
       <div className="relative flex flex-col">
-        <h2 className="absolute bottom-10 p-2 text-xl font-bold">
-          Título de la película
-        </h2>
-        <img
-          className="mb-2 rounded-xl"
-          src="https://picsum.photos/200/250"
-          alt=""
-        />
-        <div className="Tags absolute bottom-2 flex py-2">
-          {/* Falta ver el overflow*/}
-          {tags}
-        </div>
-      </div>
+  <h2 className="absolute bottom-10 p-2 z-10 text-2xl font-extrabold">
+    Título de la película
+  </h2>
+  <div className="relative mb-2 rounded-xl overflow-hidden">
+    <img
+      className="w-full h-full object-cover"
+      src="https://picsum.photos/200/250"
+      alt=""
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+  </div>
+  <div className="Tags absolute bottom-2 flex py-2">
+    {/* Falta ver el overflow*/}
+    {tags}
+  </div>
+</div>
+
       <p className="p-2 text-justify">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit debitis
         pariatur, dolorum aliquam ipsam eius molestias id temporibus eveniet

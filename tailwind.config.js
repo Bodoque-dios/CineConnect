@@ -77,6 +77,9 @@ export default {
           950: "#432205",
         },
       },
+      fontFamily: {
+        libre: [ 'Sulphur Point', "sans-serif"]
+      },
     },
   },
   plugins: [],
