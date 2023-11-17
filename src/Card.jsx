@@ -144,7 +144,7 @@ function Tag({ tag }) {
 
 function Controls() {
   return (
-    <div className="flex justify-between rounded-full bg-white">
+    <div className="flex justify-between rounded-full bg-naranjo">
       <button className="m-2 rounded-full bg-lime-500 p-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -222,6 +222,10 @@ function Controls() {
 
 function Rating({ age }) {
   age = parseInt(age, 10);
+
+  // DPS SACAR ESTO
+  const ages = [12, 16, 18];
+  age = ages[Math.floor(Math.random() * ages.length)]
 
   switch (age) {
     case 12:

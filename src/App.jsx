@@ -5,7 +5,7 @@ export default function App() {
     <>
       <div className="from-primary-950 via-primary-900 to-primary-950 font-libre h-screen w-full bg-gradient-to-b p-2 ">
         <div className="flex flex-row justify-between">
-        <h1 className="text-4xl my-4 ml-2 font-bold text-amarillo">Yo Reciclo</h1>
+        <h1 className="text-4xl my-4 ml-2 font-bold text-naranjo">Yo Reciclo</h1>
         <a href="#">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@ export default function App() {
             height="30"
             viewBox="0 0 24 24"
             strokeWidth="2"
-            stroke="#FFD60A"
+            stroke="#FFC300"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
