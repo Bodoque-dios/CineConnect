@@ -52,7 +52,7 @@ export default function Card() {
     ...Array(3)
       .fill()
       .map((_, index) => <Tag key={index} tag={randomGenre()} />),
-    <Rating age="12" />,
+    <Rating age="12" key={Math.floor(Math.random()*100000010)} />, //lol, cambiar esto
   ]);
 
   const handleMouseDown = (e) => {
@@ -114,7 +114,7 @@ fetch(url, options)
       src="https://picsum.photos/200/250"
       alt=""
     />
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black"></div>
   </div>
   <div className="Tags absolute bottom-2 flex py-2">
     {/* Falta ver el overflow*/}
@@ -134,7 +134,6 @@ fetch(url, options)
 }
 
 function Tag({ tag }) {
-  // seleccionar un color aleatorio
   return (
     <div className={`mx-2 rounded-full p-1 ${tag[1]}`}>
       <h3 className="text-center text-xs font-semibold">{tag[0]}</h3>
