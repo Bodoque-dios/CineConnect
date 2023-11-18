@@ -1,4 +1,3 @@
-import { doc } from "prettier";
 import { useState } from "react";
 
 export default function SideNav({}) {
@@ -6,7 +5,7 @@ export default function SideNav({}) {
 
     const toggleVisbility = () => {
         setIsVisible(!isVisible);
-        document.getElementById("side-nav").classList.toggle("translate-x-[50vw]");
+        document.getElementById("side-nav").classList.toggle("translate-x-[75vw]");
 
     }
 
@@ -34,7 +33,7 @@ export default function SideNav({}) {
           </svg>
         </button>
 
-        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[50vw] flex-col justify-between bg-azul transition-all translate-x-[50vw]">
+        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[75vw] flex-col justify-between bg-azul transition-all translate-x-[75vw]">
           <div>
             <span className="grid" onClick={toggleVisbility}>
               <svg
