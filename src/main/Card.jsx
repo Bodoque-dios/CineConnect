@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 export default function Card() {
-  const [offset, setOffset] = useState([0, 0]);
-  const [isDragging, setIsDragging] = useState(false);
-  const [angle, setAngle] = useState(0);
-  const [style, setStyle] = useState({
-    transform: `rotate(${angle}deg)`,
-    transition: "transform 0.2s ease",
-  });
+  const [style, setStyle] = useState({});
 
   // Quizas cambiar los colores pq ta feo
   const Genres = {
@@ -47,35 +41,25 @@ export default function Card() {
     ...Array(3)
       .fill()
       .map((_, index) => <Tag key={index} tag={randomGenre()} />),
-    <Rating age="12" key={Math.floor(Math.random()*100000010)} />, //lol, cambiar esto
+    <Rating age="12" key={Math.floor(Math.random() * 100000010)} />, //lol, cambiar esto
   ]);
 
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-  };
 
-  const handleMouseMove = (e) => {
-    if (isDragging) {
-      setOffset([e.clientX, e.clientY]);
-      setAngle((e.clientX - offset[0]) / 10);
-      setStyle({
-        transform: `rotate(${e.clientX - offset[0]}deg)`,
-        transition: "transform 0.2s ease",
-      });
-    }
-  };
-
-  const handleMouseUp = (e) => {
-    setIsDragging(false);
+  const swipeLeft = () => {
     setStyle({
-      transform: `rotate(${angle}deg)`,
+      transform: `translate(-120vw) rotate(-20deg)`,
       transition: "transform 0.2s ease",
     });
-  };
+  }
+  const swipeRight = () => {
+    setStyle({
+      transform: `translate(120vw) rotate(20deg)`,
+      transition: "transform 0.2s ease",
+    });
+  }
 
-
-const url = 'https://api.themoviedb.org/3/movie/12/images';
-/*const options = {
+  const url = "https://api.themoviedb.org/3/movie/12/images";
+  /*const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
@@ -87,35 +71,29 @@ fetch(url, options)
   .then(res => res.json())
   .then(json => console.log(json))
   .catch(err => console.error('error:' + err));
-*/  
+*/
   return (
     <div
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
       style={style}
-      onTouchStart={handleMouseDown}
-      onTouchEnd={handleMouseUp}
-      onTouchMove={handleMouseMove}
-      className="m-auto flex w-72 grow-0 flex-col justify-center rounded-2xl bg--800  backdrop-opacity-5 backdrop-invert bg-white/5 p-4 text-white"
+      className="bg--800 m-auto flex w-72 grow-0 flex-col justify-center rounded-2xl  bg-white/5 p-4 text-white backdrop-invert backdrop-opacity-5"
     >
       <div className="relative flex flex-col">
-  <h2 className="absolute bottom-10 p-2 z-10 text-2xl font-extrabold">
-    Título de la película
-  </h2>
-  <div className="relative mb-2 rounded-xl overflow-hidden">
-    <img
-      className="w-full h-full object-cover"
-      src="https://picsum.photos/200/250"
-      alt=""
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black"></div>
-  </div>
-  <div className="Tags absolute bottom-2 flex py-2">
-    {/* Falta ver el overflow*/}
-    {tags}
-  </div>
-</div>
+        <h2 className="absolute bottom-10 z-10 p-2 text-2xl font-extrabold">
+          Título de la película
+        </h2>
+        <div className="relative mb-2 overflow-hidden rounded-xl">
+          <img
+            className="h-full w-full object-cover"
+            src="https://picsum.photos/200/250"
+            alt=""
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black"></div>
+        </div>
+        <div className="Tags absolute bottom-2 flex py-2">
+          {/* Falta ver el overflow*/}
+          {tags}
+        </div>
+      </div>
 
       <p className="p-2 text-justify">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit debitis
@@ -123,7 +101,7 @@ fetch(url, options)
         facilis possimus libero consectetur sunt. Possimus mollitia beatae
         maiores commodi sunt.
       </p>
-      <Controls />
+      <Controls left={swipeLeft} right={swipeRight}/>
     </div>
   );
 }
@@ -136,10 +114,10 @@ function Tag({ tag }) {
   );
 }
 
-function Controls() {
+function Controls({left, right}) {
   return (
     <div className="flex justify-between rounded-full bg-naranjo">
-      <button className="m-2 rounded-full bg-lime-500 p-2">
+      <button className="m-2 rounded-full bg-lime-500 p-2" onClick={left}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-thumb-up stroke-white"
@@ -193,7 +171,7 @@ function Controls() {
         </svg>
       </button>
 
-      <button className="m-2 rounded-full bg-rose-600 p-2">
+      <button className="m-2 rounded-full bg-rose-600 p-2" onClick={right}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-thumb-down"
@@ -219,7 +197,7 @@ function Rating({ age }) {
 
   // DPS SACAR ESTO
   const ages = [12, 16, 18];
-  age = ages[Math.floor(Math.random() * ages.length)]
+  age = ages[Math.floor(Math.random() * ages.length)];
 
   switch (age) {
     case 12:
