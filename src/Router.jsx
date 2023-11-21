@@ -12,6 +12,7 @@ export default function Router() {
     <BrowserRouter>
         <Routes>
             <Route index element={<App />} />
+            <Route path="/login" element={<Inbox />} />
             <Route path="/chat" element={<Inbox />} />
             <Route path="/chat/:id" element={<Chat />} />
             <Route path="/contact" element={<Contact />} />

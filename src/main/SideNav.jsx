@@ -34,12 +34,12 @@ export default function SideNav({}) {
           </svg>
         </button>
 
-        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[75vw] flex-col justify-between bg-azul transition-all translate-x-[75vw]">
+        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[75vw] flex-col justify-between bg-azul transition-all translate-x-[75vw] ">
           <div>
             <span className="grid" onClick={toggleVisbility}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon-tabler-x m-2 mt-3 justify-self-end"
+                className="icon-tabler-x m-2 mt-3 justify-self-end hover:cursor-pointer"
                 width="40"
                 height="40"
                 viewBox="0 0 24 24"
@@ -60,19 +60,18 @@ export default function SideNav({}) {
                   src="https://i.imgur.com/8Km9tLL.png"
                   className="m-4 h-24 w-24 rounded-full"
                 />
-                <h2 className="text-3xl text-naranjo"> NOMBRE</h2>
+                <h2 className="text-3xl text-naranjo">Pepe Pelota</h2>
             </div>
 
             <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>
 
             <div className="flex flex-col items-center pt-4">
-              <Link className="text-3xl text-naranjo p-2" to='/contact'>Contacto</Link>
-                <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
-                <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
-                <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
-                <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
+                <h2 className="text-3xl text-naranjo p-2" >Inicio</h2>
+                <h2 className="text-3xl text-naranjo p-2" >Perfil</h2>
+                <h2 className="text-3xl text-naranjo p-2" >Conexiones</h2>
+                <Link className="text-3xl text-naranjo p-2" to='/contact'>Contacto</Link>
+                <h2 className="text-3xl text-naranjo p-2" >?</h2>
             </div>
-
           </div>
 
           <div id="bottom-thing" className="flex justify-end">

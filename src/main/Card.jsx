@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-export default function Card() {
+export default function Card({onDelete}) {
   const [style, setStyle] = useState({});
 
   // Quizas cambiar los colores pq ta feo
@@ -50,12 +50,16 @@ export default function Card() {
       transform: `translate(-120vw) rotate(-20deg)`,
       transition: "transform 0.2s ease",
     });
+    setTimeout(() => {
+      onDelete()}, 500)
   }
   const swipeRight = () => {
     setStyle({
       transform: `translate(120vw) rotate(20deg)`,
       transition: "transform 0.2s ease",
     });
+    setTimeout(() => {
+    onDelete()}, 500)
   }
 
   const url = "https://api.themoviedb.org/3/movie/12/images";
@@ -72,19 +76,25 @@ fetch(url, options)
   .then(json => console.log(json))
   .catch(err => console.error('error:' + err));
 */
+// Hay q pasar 
+// Titulo
+// Sinopsis
+// Generos
+// Rating
+
   return (
     <div
       style={style}
-      className="bg--800 m-auto flex w-72 grow-0 flex-col justify-center rounded-2xl  bg-white/5 p-4 text-white backdrop-invert backdrop-opacity-5"
+      className="animate-fade-in m-auto flex w-72 grow-0 flex-col justify-center rounded-2xl bg-white/5 p-4 text-white backdrop-invert backdrop-opacity-5"
     >
       <div className="relative flex flex-col">
         <h2 className="absolute bottom-10 z-10 p-2 text-2xl font-extrabold">
-          Título de la película
+          Shrek
         </h2>
         <div className="relative mb-2 overflow-hidden rounded-xl">
           <img
             className="h-full w-full object-cover"
-            src="https://picsum.photos/200/250"
+            src="https://www.themoviedb.org/t/p/original/dyhaB19AICF7TO7CK2aD6KfymnQ.jpg"
             alt=""
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black"></div>
@@ -95,11 +105,9 @@ fetch(url, options)
         </div>
       </div>
 
-      <p className="p-2 text-justify">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit debitis
-        pariatur, dolorum aliquam ipsam eius molestias id temporibus eveniet
-        facilis possimus libero consectetur sunt. Possimus mollitia beatae
-        maiores commodi sunt.
+      
+      <p className="p-2 text-justify overflow-scroll max-h-48">
+      Once upon a time there was a lovely princess. But she had an enchantment upon her of a fearful sort which could only be broken by love's first kiss. She was locked away in a castle guarded by a terrible fire-breathing dragon. Many brave knights had attempted to free her from this dreadful prison but none prevailed. She waited in the dragon's keep in the highest room of the tallest tower for her true love and true love's first kiss.
       </p>
       <Controls left={swipeLeft} right={swipeRight}/>
     </div>

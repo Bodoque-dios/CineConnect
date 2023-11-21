@@ -37,7 +37,7 @@ function ChatBox() {
       <div className="m-4 flex items-center justify-between rounded-2xl bg-white/5 p-3">
         <div className="flex items-center">
           <img
-            src="https://pbs.twimg.com/media/FvLcK71XoAEQupc.jpg"
+            src="https://i1.sndcdn.com/artworks-zyYqA8D0BdfuyH28-WeeHrw-t500x500.jpg"
             alt=""
             className="mr-4 h-20 w-20 rounded-full"
           />
