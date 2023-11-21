@@ -60,7 +60,7 @@ export default function SideNav({}) {
                   src="https://i.imgur.com/8Km9tLL.png"
                   className="m-4 h-24 w-24 rounded-full"
                 />
-                <h2 className="text-3xl text-naranjo">Pepe Pelota</h2>
+                <h2 className="text-3xl text-naranjo"> NOMBRE</h2>
             </div>
 
             <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>

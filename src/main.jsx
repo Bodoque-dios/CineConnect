@@ -6,10 +6,6 @@ import Perfil from './perfil.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-<<<<<<< Updated upstream
     <Router />
-=======
-    <Perfil />
->>>>>>> Stashed changes
   </React.StrictMode>,
 )

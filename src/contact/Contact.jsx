@@ -6,7 +6,7 @@ export default function Contact() {
     return (
         <div className="bg-midnight-950 font-libre w-full px-5">
             <div className="flex flex-row justify-between">
-                <Link to='/' className="text-4xl my-4 ml-2 font-bold text-naranjo">CineConect</Link>
+                <Link to='/' className="text-4xl my-4 ml-2 font-bold text-naranjo">CineConnect</Link>
                 {/* <SideNav /> */}
             </div>
             <div className='min-h-[80vh] p-5 flex flex-col items-center'>
