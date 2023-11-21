@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SideNav({}) {
     const [isVisible, setIsVisible] = useState(false);
@@ -65,7 +66,7 @@ export default function SideNav({}) {
             <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>
 
             <div className="flex flex-col items-center pt-4">
-                <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
+              <Link className="text-3xl text-naranjo p-2" to='/contact'>Contacto</Link>
                 <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
                 <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
                 <h2 className="text-3xl text-naranjo p-2" >Opcion</h2>
