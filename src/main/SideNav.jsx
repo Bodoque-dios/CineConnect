@@ -70,7 +70,6 @@ export default function SideNav({}) {
                 <h2 className="text-3xl text-naranjo p-2" >Perfil</h2>
                 <h2 className="text-3xl text-naranjo p-2" >Conexiones</h2>
                 <Link className="text-3xl text-naranjo p-2" to='/contact'>Contacto</Link>
-                <h2 className="text-3xl text-naranjo p-2" >?</h2>
             </div>
           </div>
 

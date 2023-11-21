@@ -106,7 +106,7 @@ fetch(url, options)
       </div>
 
       
-      <p className="p-2 text-justify overflow-scroll max-h-48">
+      <p className="p-2 mb-2 text-justify overflow-scroll max-h-[12.3rem]">
       Once upon a time there was a lovely princess. But she had an enchantment upon her of a fearful sort which could only be broken by love's first kiss. She was locked away in a castle guarded by a terrible fire-breathing dragon. Many brave knights had attempted to free her from this dreadful prison but none prevailed. She waited in the dragon's keep in the highest room of the tallest tower for her true love and true love's first kiss.
       </p>
       <Controls left={swipeLeft} right={swipeRight}/>
@@ -124,7 +124,7 @@ function Tag({ tag }) {
 
 function Controls({left, right}) {
   return (
-    <div className="flex justify-between rounded-full bg-naranjo">
+    <div className="flex justify-between rounded-full bg-naranjo mt-1">
       <button className="m-2 rounded-full bg-lime-500 p-2" onClick={left}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
