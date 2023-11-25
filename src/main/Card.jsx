@@ -2,46 +2,33 @@ import React, { useEffect, useState } from "react";
 export default function Card({ onDelete, data}) {
   const [style, setStyle] = useState({});
 
-  // Quizas cambiar los colores pq ta feo
-  const Genres = {
-    Action: "bg-red-500",
-    Adventure: "bg-blue-500",
-    Animation: "bg-green-500",
-    Biography: "bg-purple-500",
-    Comedy: "bg-yellow-500",
-    Crime: "bg-pink-500",
-    Documentary: "bg-indigo-500",
-    Drama: "bg-teal-500",
-    Family: "bg-cyan-500",
-    Fantasy: "bg-orange-500",
-    FilmNoir: "bg-lime-500",
-    History: "bg-red-600",
-    Horror: "bg-blue-600",
-    Music: "bg-green-600",
-    Musical: "bg-purple-600",
-    Mystery: "bg-yellow-600",
-    Romance: "bg-pink-600",
-    SciFi: "bg-indigo-600",
-    ShortFilm: "bg-teal-600",
-    Sport: "bg-cyan-600",
-    Superhero: "bg-orange-600",
-    Thriller: "bg-lime-600",
-    War: "bg-red-700",
-    Western: "bg-blue-700",
+  const genreInfo = {
+    28: { name: 'Action', color: 'bg-red-500' },
+    12: { name: 'Adventure', color: 'bg-yellow-500' },
+    16: { name: 'Animation', color: 'bg-green-500' },
+    35: { name: 'Comedy', color: 'bg-blue-500' },
+    80: { name: 'Crime', color: 'bg-purple-500' },
+    99: { name: 'Documentary', color: 'bg-indigo-500' },
+    18: { name: 'Drama', color: 'bg-pink-500' },
+    10751: { name: 'Family', color: 'bg-yellow-300' },
+    14: { name: 'Fantasy', color: 'bg-orange-500' },
+    36: { name: 'History', color: 'bg-teal-500' },
+    27: { name: 'Horror', color: 'bg-red-800' },
+    10402: { name: 'Music', color: 'bg-blue-800' },
+    9648: { name: 'Mystery', color: 'bg-purple-800' },
+    10749: { name: 'Romance', color: 'bg-pink-800' },
+    878: { name: 'Science Fiction', color: 'bg-green-800' },
+    10770: { name: 'TV Movie', color: 'bg-yellow-800' },
+    53: { name: 'Thriller', color: 'bg-red-600' },
+    10752: { name: 'War', color: 'bg-green-600' },
+    37: { name: 'Western', color: 'bg-orange-800' },
   };
 
-  // Select a random genre once
-  const randomGenre = () => {
-    const keys = Object.keys(Genres);
-    const RandomKey = keys[Math.floor(Math.random() * keys.length)];
-    return [RandomKey, Genres[RandomKey]];
-  };
+
+  const genre = data.genres
 
   const [tags, setTags] = useState([
-    ...Array(3)
-      .fill()
-      .map((_, index) => <Tag key={index} tag={randomGenre()} />),
-    <Rating age="12" key={Math.floor(Math.random() * 100000010)} />, //lol, cambiar esto
+     //lol, cambiar esto
   ]);
 
   const swipeLeft = () => {
@@ -63,19 +50,12 @@ export default function Card({ onDelete, data}) {
     }, 500);
   };
 
-  const url = "https://api.themoviedb.org/3/movie/12/images";
   /*const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjVjNzRhNjUwYzMyZmY5YzkzOGQ3NmE0ZTFkYTYxNCIsInN1YiI6IjY1NTYzODRmMDgxNmM3MDExYTBjNGNjMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.I3NmkHWwFLjYaNcRQywFtJYgHrWItIaYvY34cIwOrEI'
-  }
-};
 
-fetch(url, options)
-  .then(res => res.json())
-  .then(json => console.log(json))
-  .catch(err => console.error('error:' + err));
 */
 
   return (
@@ -92,7 +72,7 @@ fetch(url, options)
               alt=""
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black">
-              <h2 className="font-inter absolute bottom-12 z-10 p-2 text-4xl font-semibold">
+              <h2 className="font-inter absolute bottom-2 z-10 p-2 text-4xl font-semibold">
                 {data.title}
               </h2>
               <div className="Tags absolute bottom-2 flex py-2">
@@ -114,10 +94,10 @@ fetch(url, options)
   );
 }
 
-function Tag({ tag }) {
+function Tag({ name, color }) {
   return (
-    <div className={`mx-2 rounded-full p-2 ${tag[1]}`}>
-      <h3 className="text-center text-xs font-semibold">{tag[0]}</h3>
+    <div className={`mx-2 rounded-full p-2 ${color}`}>
+      <h3 className="text-center text-xs font-semibold">{name}</h3>
     </div>
   );
 }
