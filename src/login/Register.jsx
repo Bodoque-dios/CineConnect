@@ -20,14 +20,14 @@ export default function Login() {
         email: e.target[1].value,
         firstName: e.target[2].value,
         lastName: e.target[3].value,
-        userType: "user"
+        userType: "user",
       }),
     })
       .then((data) => {
-        console.log(data);   
-        if(data.status === 200){
-            navigate("/login");
-            //navigate("/");
+        console.log(data);
+        if (data.status === 200) {
+          navigate("/login");
+          //navigate("/");
         }
       })
       .catch((err) => console.error(err));
@@ -64,7 +64,7 @@ export default function Login() {
               type="text"
               className="my-1 rounded-md border border-gray-300 bg-gray-200 p-1"
             ></input>
-            
+
             <label>Contraseña</label>
             <input
               type="password"
@@ -75,8 +75,6 @@ export default function Login() {
               type="password"
               className="my-1 rounded-md border border-gray-300 bg-gray-200 p-1"
             ></input>
-            
-
 
             <button
               type="submit"
@@ -87,13 +85,16 @@ export default function Login() {
           </form>
           <div className="flex w-full justify-start p-4">
             <p>
-                ¿Ya tienes una cuenta? <span onClick={()=>{
-                    navigate("/login")
-                }} className="text-sm underline hover:cursor-pointer">
+              ¿Ya tienes una cuenta?{" "}
+              <span
+                onClick={() => {
+                  navigate("/login");
+                }}
+                className="text-sm underline hover:cursor-pointer"
+              >
                 Iniciar Sesión
-                </span>
+              </span>
             </p>
-            
           </div>
         </div>
       </div>

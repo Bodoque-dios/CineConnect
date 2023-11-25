@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-export default function Card({ onDelete }) {
+export default function Card({ onDelete, data}) {
   const [style, setStyle] = useState({});
 
   // Quizas cambiar los colores pq ta feo
@@ -77,11 +77,6 @@ fetch(url, options)
   .then(json => console.log(json))
   .catch(err => console.error('error:' + err));
 */
-  // Hay q pasar
-  // Titulo
-  // Sinopsis
-  // Generos
-  // Rating
 
   return (
     <div
@@ -93,12 +88,12 @@ fetch(url, options)
           <div className="border-rojovintage-800 relative mb-2 overflow-hidden rounded-t-xl border-b-2">
             <img
               className="h-full w-full object-cover"
-              src="https://www.themoviedb.org/t/p/original/dyhaB19AICF7TO7CK2aD6KfymnQ.jpg"
+              src={`https://www.themoviedb.org/t/p/original/${data.img}`}
               alt=""
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black">
               <h2 className="font-inter absolute bottom-12 z-10 p-2 text-4xl font-semibold">
-                Shrek
+                {data.title}
               </h2>
               <div className="Tags absolute bottom-2 flex py-2">
                 {/* Falta ver el overflow*/}
@@ -108,10 +103,8 @@ fetch(url, options)
           </div>
         </div>
 
-        <p className="mb-3 max-h-[6.3rem] px-3 text-justify text-sm">
-          Once upon a time there was a lovely princess. But she had an
-          enchantment upon her of a fearful sort which could only be broken by
-          love's first kiss.
+        <p className="mb-3 max-h-[6.3rem] px-3 text-justify text-sm overflow-hidden">
+          {data.overview}
         </p>
       </div>
       <div className="bg-transparent">
@@ -133,21 +126,6 @@ function Controls({ left, right }) {
   return (
     <div className="flex justify-around rounded-full ">
       <button className="m-2 rounded-full bg-lime-500 p-2" onClick={left}>
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-thumb-up stroke-white"
-          width="30"
-          height="33"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="#ffff"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
-        </svg> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -163,21 +141,6 @@ function Controls({ left, right }) {
       </button>
 
       <button className="m-2 rounded-full bg-rose-600 p-2 " onClick={right}>
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-thumb-down"
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="#ffff"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3" />
-        </svg> */}
         <svg
           width="60"
           height="60"

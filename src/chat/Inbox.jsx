@@ -6,18 +6,21 @@ export default function Inbox() {
   const [id, setId] = useState("1");
   return (
     <>
-      <div className="via-primary-951 min-h-screen w-full overflow-scroll bg-gradient-to-b from-primary-950 to-primary-950">
+      <div className="via-primary-951 min-h-screen w-full overflow-hidden bg-gradient-to-b from-primary-950 to-primary-950">
         <Header />
-        <div className="relative h-screen w-full font-inter">
+        <div className="relative h-full w-full font-inter">
           <div className="mx-4 flex flex-row justify-start">
             <h1 className="mb-1 mt-4 text-2xl font-extrabold text-rojovintage-600">
               Conexiones
             </h1>
           </div>
 
-          <section id="Chats" className="flex flex-col">
+          <div 
+            id="Chats" 
+            className="flex flex-col justify-start overflow-y-scroll]"
+          >
             <ChatBox id={id} />
-          </section>
+          </div>
         </div>
       </div>
     </>
