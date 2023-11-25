@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 /**
  *
@@ -11,32 +11,34 @@ const Chat = () => {
   const { id } = useParams();
 
   return (
-    <div className="relative h-screen max-h-screen w-full overflow-hidden bg-gradient-to-b from-primary-950 via-primary-900  to-primary-950 font-libre">
+    <div className="relative h-screen max-h-screen w-full overflow-hidden bg-gradient-to-b from-primary-950 via-primary-951  to-primary-950 font-inter">
       <div className="flex items-center justify-between">
         <div className="m-4 flex items-center">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Borat_in_Cologne.jpg/480px-Borat_in_Cologne.jpg"
             alt=""
-            className="h-16 w-16 rounded-full"
+            className="h-16 w-16 rounded-full border-2 border-rojovintage-500"
           />
-          <h1 className="pl-3 text-2xl text-naranjo">Borat Sagdiyev</h1>
+          <h1 className="pl-3 text-2xl font-bold text-rojovintage-500">Borat Sagdiyev</h1>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon-tabler-x m-4"
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="#ffbf00"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M18 6l-12 12" />
-          <path d="M6 6l12 12" />
-        </svg>
+        <Link to="/chat">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon-tabler-x m-4"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="#d65e5d"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </Link>
       </div>
       <div className="grid max-h-[75vh] w-screen overflow-hidden overflow-y-auto text-lg ">
         <Mensaje wasSent={true} mensaje="Hola" />
@@ -64,10 +66,10 @@ const Chat = () => {
       <div className="z-20 flex w-full items-center justify-center px-4 mt-10">
         <input
           type="text"
-          className="h-10 w-full rounded-full bg-midnight-blue-700 placeholder-white "
-          placeholder="  Escribe un mensaje"
+          className="h-10 w-full rounded-full px-3 bg-gray-800 placeholder-white "
+          placeholder="Escribe un mensaje"  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
         />
-        <button className="h-10 w-10 m-2 rounded-full bg-naranjo flex justify-center items-center">
+        <button className="h-10 w-10 m-2 rounded-full bg-rojovintage-500 flex justify-center items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-brand-telegram"
@@ -92,13 +94,13 @@ const Chat = () => {
 function Mensaje({ wasSent, mensaje }) {
   if (wasSent) {
     return (
-      <div className="ml-4 w-fit rounded bg-azul p-2 py-3 text-white">
+      <div className="ml-4 my-1 w-fit rounded-md bg-azul p-2 py-3 text-white">
         {mensaje}
       </div>
     );
   } else {
     return (
-      <div className="mr-4 w-fit justify-self-end rounded bg-naranjo p-2 py-3">
+      <div className="mr-4 my-1 w-fit text-white justify-self-end rounded-md bg-rojovintage-600 p-2 py-3">
         {mensaje}
       </div>
     );

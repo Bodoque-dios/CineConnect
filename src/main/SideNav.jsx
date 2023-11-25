@@ -75,8 +75,8 @@ export default function SideNav({}) {
                 <div className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/profile' ? 'bg-rojovintage-700' : ''}`}>
                   <h2 className={`${currentPath =='/profile' ? 'text-white' : ''}`} >Perfil</h2>
                 </div>
-                <div className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/conections' ? 'bg-rojovintage-700' : ''}`}>
-                  <h2 className={`${currentPath =='/conections' ? 'text-white' : ''}`} >Conexiones</h2>
+                <div className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/chat' ? 'bg-rojovintage-700' : ''}`}>
+                  <h2 className={`${currentPath =='/chat' ? 'text-white' : ''}`} >Conexiones</h2>
                 </div>
                 <Link  to='/contact' className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/contact' ? 'bg-rojovintage-700' : ''}`}>
                   <h2 className={`${currentPath =='/contact' ? 'text-white' : ''}`}>Contacto</h2>

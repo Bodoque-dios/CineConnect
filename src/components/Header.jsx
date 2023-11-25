@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
-        <div className="flex flex-row justify-between mb-3">
+        <div className="flex flex-row justify-between my-3">
             <div className='hidden md:flex flex-row justify-center items-center my-4 ml-3'>
                 <div className='max-h-[70px] max-w-[50px] mr-2'>
                     <img src={logo} className='object-cover w-full h-full' alt="Logo" /> {/* Use the imported image */}
