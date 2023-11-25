@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Card from "./Card";
-import SideNav from "./SideNav";
 import { useState } from "react";
 
 export default function App() {
