@@ -4,6 +4,7 @@ import Inbox from "./chat/Inbox.jsx";
 import Chat from "./chat/Chat.jsx";
 import Contact from "./contact/Contact.jsx";
 import Login from "./login/Login.jsx";
+import Register from "./login/Register.jsx";
 
 
 export default function Router() {
@@ -15,6 +16,7 @@ export default function Router() {
             <Route path="/chat/:id" element={<Chat />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
 
         </Routes>
