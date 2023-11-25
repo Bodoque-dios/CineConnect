@@ -10,12 +10,7 @@ export default function SideNav({}) {
     }
 
     const location = useLocation();
-
-    // Access the pathname from the location object
     const currentPath = location.pathname;
-
-    console.log(currentPath);
-  
 
 
   return (
@@ -73,17 +68,17 @@ export default function SideNav({}) {
 
             <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>
 
-            <div className="flex flex-col font-semibold items-start md:items-center p-4 text-2xl max-w-[300px] text-gray-500">
-                <Link to="/" className={` my-1 w-full p-2 rounded-xl ${currentPath =='/' ? 'bg-rojovintage-700' : ''}`}>
+            <div className="flex flex-col w-full font-semibold items-start md:items-center p-4 text-2xl text-gray-500">
+                <Link to="/" className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/' ? 'bg-rojovintage-700' : ''}`}>
                   <h2 className={`${currentPath =='/' ? 'text-white' : ''}`} >Inicio</h2>
                 </Link>
-                <div className={` my-1 w-full p-2 rounded-xl ${currentPath =='/profile' ? 'bg-rojovintage-700' : ''}`}>
+                <div className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/profile' ? 'bg-rojovintage-700' : ''}`}>
                   <h2 className={`${currentPath =='/profile' ? 'text-white' : ''}`} >Perfil</h2>
                 </div>
-                <div className={` my-1 w-full p-2 rounded-xl ${currentPath =='/conections' ? 'bg-rojovintage-700' : ''}`}>
+                <div className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/conections' ? 'bg-rojovintage-700' : ''}`}>
                   <h2 className={`${currentPath =='/conections' ? 'text-white' : ''}`} >Conexiones</h2>
                 </div>
-                <Link  to='/contact' className={` my-1 w-full p-2 rounded-xl ${currentPath =='/contact' ? 'bg-rojovintage-700' : ''}`}>
+                <Link  to='/contact' className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/contact' ? 'bg-rojovintage-700' : ''}`}>
                   <h2 className={`${currentPath =='/contact' ? 'text-white' : ''}`}>Contacto</h2>
                 </Link>
             </div>

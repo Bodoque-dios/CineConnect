@@ -5,7 +5,7 @@ import Header from '../components/Header'
 
 export default function Contact() {
     return (
-        <div className="bg-midnight-950 font-inter min-h-screen w-full overflow-hidden">
+        <div className="bg-gray-900 font-inter min-h-screen w-full overflow-hidden">
             <Header />
             <div className='min-h-[80vh] p-5 flex flex-col items-center'>
                 <h1 className='text-5xl text-rojovintage-600 font-bold'>Equipo</h1>
