@@ -9,6 +9,21 @@ export default {
         azul: "#003566",
         naranjo: "#FFC300",
         amarillo: "#FFD60A",
+        rojo: "#b33938",
+
+        rojovintage: {
+          50: "#fcf4f4",
+          100: "#fae6e6",
+          200: "#f6d2d2",
+          300: "#efb2b2",
+          400: "#e48685",
+          500: "#d65e5d",
+          600: "#c24140",
+          700: "#b33938",
+          800: "#872e2d",
+          900: "#712c2b",
+          950: "#3c1313",
+        }, 
 
         primary: {
           50: "#eef6ff",
@@ -78,7 +93,9 @@ export default {
         },
       },
       fontFamily: {
-        libre: [ 'Sulphur Point', "sans-serif"]
+        libre: [ 'Sulphur Point', "sans-serif"],
+        limelight: ['Limelight', "sans-serif"],
+        inter: ['Inter', "sans-serif"]
       },
       animation: {
         "fade-in": "fade-in 1s ",

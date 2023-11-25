@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function SideNav({}) {
     const [isVisible, setIsVisible] = useState(false);
@@ -7,22 +7,30 @@ export default function SideNav({}) {
     const toggleVisbility = () => {
         setIsVisible(!isVisible);
         document.getElementById("side-nav").classList.toggle("translate-x-[75vw]");
-
     }
+
+    const location = useLocation();
+
+    // Access the pathname from the location object
+    const currentPath = location.pathname;
+
+    console.log(currentPath);
+  
 
 
   return (
     <>
+      
       <div className="relative z-10 flex flex-col transition-all">
         <button onClick={toggleVisbility}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="m-4 my-5"
-            width="30"
-            height="30"
+            className="m-4 my-4"
+            width="35"
+            height="35"
             viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="#FFC300"
+            strokeWidth="3"
+            stroke="#d65e5d"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -34,7 +42,7 @@ export default function SideNav({}) {
           </svg>
         </button>
 
-        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[75vw] flex-col justify-between bg-azul transition-all translate-x-[75vw] ">
+        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[75vw] flex-col justify-between bg-gray-800 transition-all translate-x-[75vw] ">
           <div>
             <span className="grid" onClick={toggleVisbility}>
               <svg
@@ -60,16 +68,24 @@ export default function SideNav({}) {
                   src="https://i.imgur.com/8Km9tLL.png"
                   className="m-4 h-24 w-24 rounded-full"
                 />
-                <h2 className="text-3xl text-naranjo"> NOMBRE</h2>
+                <h2 className="text-4xl text-rojovintage-500 font-bold">Pepe Pelota</h2>
             </div>
 
             <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>
 
-            <div className="flex flex-col items-center pt-4">
-                <h2 className="text-3xl text-naranjo p-2" >Inicio</h2>
-                <h2 className="text-3xl text-naranjo p-2" >Perfil</h2>
-                <h2 className="text-3xl text-naranjo p-2" >Conexiones</h2>
-                <Link className="text-3xl text-naranjo p-2" to='/contact'>Contacto</Link>
+            <div className="flex flex-col font-semibold items-start md:items-center p-4 text-2xl max-w-[300px] text-gray-500">
+                <Link to="/" className={` my-1 w-full p-2 rounded-xl ${currentPath =='/' ? 'bg-rojovintage-700' : ''}`}>
+                  <h2 className={`${currentPath =='/' ? 'text-white' : ''}`} >Inicio</h2>
+                </Link>
+                <div className={` my-1 w-full p-2 rounded-xl ${currentPath =='/profile' ? 'bg-rojovintage-700' : ''}`}>
+                  <h2 className={`${currentPath =='/profile' ? 'text-white' : ''}`} >Perfil</h2>
+                </div>
+                <div className={` my-1 w-full p-2 rounded-xl ${currentPath =='/conections' ? 'bg-rojovintage-700' : ''}`}>
+                  <h2 className={`${currentPath =='/conections' ? 'text-white' : ''}`} >Conexiones</h2>
+                </div>
+                <Link  to='/contact' className={` my-1 w-full p-2 rounded-xl ${currentPath =='/contact' ? 'bg-rojovintage-700' : ''}`}>
+                  <h2 className={`${currentPath =='/contact' ? 'text-white' : ''}`}>Contacto</h2>
+                </Link>
             </div>
           </div>
 

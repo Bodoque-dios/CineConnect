@@ -85,38 +85,43 @@ fetch(url, options)
   return (
     <div
       style={style}
-      className="animate-fade-in m-auto flex w-72 grow-0 flex-col justify-center rounded-2xl bg-white/5 p-4 text-white backdrop-invert backdrop-opacity-5"
+      className="animate-fade-in mx-4 w-full max-w-[400px] md:max-w-[350px] flex grow-0 flex-col justify-center rounded-2xl bg-transparent text-white backdrop-opacity-5"
     >
-      <div className="relative flex flex-col">
-        <h2 className="absolute bottom-10 z-10 p-2 text-2xl font-extrabold">
-          Shrek
-        </h2>
-        <div className="relative mb-2 overflow-hidden rounded-xl">
-          <img
-            className="h-full w-full object-cover"
-            src="https://www.themoviedb.org/t/p/original/dyhaB19AICF7TO7CK2aD6KfymnQ.jpg"
-            alt=""
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black"></div>
+      <div className="bg-gray-950 rounded-2xl mb-3 border-2 border-gray-900">
+        <div className="relative flex flex-col">
+          <div className="relative mb-2 overflow-hidden rounded-t-xl border-b-2 border-rojovintage-800">
+            <img
+              className="h-full w-full object-cover"
+              src="https://www.themoviedb.org/t/p/original/dyhaB19AICF7TO7CK2aD6KfymnQ.jpg"
+              alt=""
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black">
+              <h2 className="absolute bottom-12 z-10 p-2 text-4xl font-inter font-semibold">
+                Shrek
+              </h2>
+              <div className="Tags absolute bottom-2 flex py-2">
+                {/* Falta ver el overflow*/}
+                {tags}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="Tags absolute bottom-2 flex py-2">
-          {/* Falta ver el overflow*/}
-          {tags}
-        </div>
-      </div>
 
-      
-      <p className="p-2 mb-2 text-justify overflow-scroll max-h-[12.3rem]">
-      Once upon a time there was a lovely princess. But she had an enchantment upon her of a fearful sort which could only be broken by love's first kiss. She was locked away in a castle guarded by a terrible fire-breathing dragon. Many brave knights had attempted to free her from this dreadful prison but none prevailed. She waited in the dragon's keep in the highest room of the tallest tower for her true love and true love's first kiss.
-      </p>
-      <Controls left={swipeLeft} right={swipeRight}/>
+        
+        <p className="px-3 mb-3 text-sm text-justify max-h-[6.3rem]">
+        Once upon a time there was a lovely princess. But she had an enchantment upon her of a fearful sort which could only be broken by love's first kiss.
+        </p>
+      </div>
+      <div className="bg-transparent">
+        <Controls left={swipeLeft} right={swipeRight}/>
+      </div>
     </div>
   );
 }
 
 function Tag({ tag }) {
   return (
-    <div className={`mx-2 rounded-full p-1 ${tag[1]}`}>
+    <div className={`mx-2 rounded-full p-2 ${tag[1]}`}>
       <h3 className="text-center text-xs font-semibold">{tag[0]}</h3>
     </div>
   );
@@ -124,13 +129,13 @@ function Tag({ tag }) {
 
 function Controls({left, right}) {
   return (
-    <div className="flex justify-between rounded-full bg-naranjo mt-1">
+    <div className="flex justify-around rounded-full ">
       <button className="m-2 rounded-full bg-lime-500 p-2" onClick={left}>
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-thumb-up stroke-white"
-          width="24"
-          height="24"
+          width="30"
+          height="33"
           viewBox="0 0 24 24"
           strokeWidth="2"
           stroke="#ffff"
@@ -140,51 +145,25 @@ function Controls({left, right}) {
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
+        </svg> */}
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          x="0px" y="0px" width="60" height="60" 
+          viewBox="0 0 30 30"
+          stroke=""
+          fill="">
+          <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
         </svg>
-      </button>
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-heart"
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="#000000"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-        </svg>
+
       </button>
 
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-heart-off"
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="#000000"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M3 3l18 18" />
-          <path d="M19.5 12.572l-1.5 1.428m-2 2l-4 4l-7.5 -7.428a5 5 0 0 1 -1.288 -5.068a4.976 4.976 0 0 1 1.788 -2.504m3 -1c1.56 0 3.05 .727 4 2a5 5 0 1 1 7.5 6.572" />
-        </svg>
-      </button>
 
-      <button className="m-2 rounded-full bg-rose-600 p-2" onClick={right}>
-        <svg
+      <button className="m-2 rounded-full bg-rose-600 p-2 " onClick={right}>
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-thumb-down"
-          width="24"
-          height="24"
+          width="30"
+          height="30"
           viewBox="0 0 24 24"
           strokeWidth="2"
           stroke="#ffff"
@@ -194,6 +173,16 @@ function Controls({left, right}) {
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3" />
+        </svg> */}
+        <svg width="60" height="60" 
+        viewBox="0 0 24 24" fill="none" 
+        xmlns="http://www.w3.org/2000/svg">
+        <path 
+          d="M19 5L5 19M5.00001 5L19 19" 
+          stroke="#000000" 
+          stroke-width="1.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
@@ -213,8 +202,8 @@ function Rating({ age }) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-rating-12-plus"
-          width="24"
-          height="24"
+          width="30"
+          height="33"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="#ffff"
@@ -237,8 +226,8 @@ function Rating({ age }) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-rating-16-plus"
-          width="24"
-          height="24"
+          width="30"
+          height="33"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="#ffff"
@@ -262,8 +251,8 @@ function Rating({ age }) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-rating-18-plus"
-          width="24"
-          height="24"
+          width="30"
+          height="33"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="#ffff"

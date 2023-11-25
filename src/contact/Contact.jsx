@@ -1,16 +1,14 @@
 import React from 'react'
 import SideNav from '../main/SideNav'
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 export default function Contact() {
     return (
-        <div className="bg-midnight-950 font-libre w-full px-5">
-            <div className="flex flex-row justify-between">
-                <Link to='/' className="text-4xl my-4 ml-2 font-bold text-naranjo">CineConnect</Link>
-                {/* <SideNav /> */}
-            </div>
+        <div className="bg-midnight-950 font-inter min-h-screen w-full overflow-hidden">
+            <Header />
             <div className='min-h-[80vh] p-5 flex flex-col items-center'>
-                <h1 className='text-5xl text-naranjo'>Equipo</h1>
+                <h1 className='text-5xl text-rojovintage-600 font-bold'>Equipo</h1>
                     <img src='https://i.pinimg.com/564x/67/26/c8/6726c816abbf19ab93fc070bb80af706.jpg' className='rounded-xl mt-7'></img>
                 <div className='flex justify-start flex-col md:flex-row my-10'>
                     <div className='flex flex-col mx-5 items-center mt-4'>
