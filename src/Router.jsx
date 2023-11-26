@@ -5,7 +5,10 @@ import Chat from "./chat/Chat.jsx";
 import Contact from "./contact/Contact.jsx";
 import Login from "./login/Login.jsx";
 import Register from "./login/Register.jsx";
-import Perfil from "./perfil.jsx";
+import Perfil from "./perfil/perfil.jsx"
+import Ajustes from "./ajustes/ajustes.jsx";
+
+
 
 export default function Router() {
     return(
@@ -19,6 +22,9 @@ export default function Router() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/perfil" element={<Perfil />} />
+            <Route path="/ajustes" element={<Ajustes />} />
+
+
 
         </Routes>
     </BrowserRouter>
