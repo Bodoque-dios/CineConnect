@@ -5,7 +5,7 @@ import Chat from "./chat/Chat.jsx";
 import Contact from "./contact/Contact.jsx";
 import Login from "./login/Login.jsx";
 import Register from "./login/Register.jsx";
-import Perfil from "./perfil.jsx"
+import Perfil from "./perfil/perfil.jsx"
 import Ajustes from "./ajustes/ajustes.jsx";
 
 
