@@ -11,14 +11,14 @@ export default function Router() {
     return(
     <BrowserRouter>
         <Routes>
-            <Route index element={<App />} />
+            <Route index element={<Login />} />
+            <Route path="/app" element={<App />} />
             <Route path="/chat" element={<Inbox />} />
             <Route path="/chat/:id" element={<Chat />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/perfil" element={<Perfil />} />
-
 
         </Routes>
     </BrowserRouter>

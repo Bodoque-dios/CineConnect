@@ -60,17 +60,17 @@ export default function SideNav({}) {
 
             <div className="flex flex-col items-center">
                 <img
-                  src="https://i.imgur.com/8Km9tLL.png"
+                  src="https://i1.sndcdn.com/artworks-000208559700-5cy27c-t500x500.jpg"
                   className="m-4 h-24 w-24 rounded-full"
                 />
-                <h2 className="text-4xl text-rojovintage-500 font-bold">Pepe Pelota</h2>
+                <h2 className="text-4xl text-rojovintage-500 font-bold">Shrek</h2>
             </div>
 
             <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>
 
             <div className="flex flex-col w-full font-semibold items-start md:items-center p-4 text-2xl text-gray-500">
-                <Link to="/" className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/' ? 'bg-rojovintage-700' : ''}`}>
-                  <h2 className={`${currentPath =='/' ? 'text-white' : ''}`} >Inicio</h2>
+                <Link to="/app" className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/app' ? 'bg-rojovintage-700' : ''}`}>
+                  <h2 className={`${currentPath =='/app' ? 'text-white' : ''}`} >Inicio</h2>
                 </Link>
                 <Link to="/perfil" className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/perfil' ? 'bg-rojovintage-700' : ''}`} >
                   <h2 className={`${currentPath =='/perfil' ? 'text-white' : ''}`} >Perfil</h2>

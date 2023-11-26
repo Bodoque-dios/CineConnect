@@ -26,8 +26,7 @@ export default function Login() {
           localStorage.setItem("token", data.token);
           console.log(localStorage.getItem("token"));
           setFailedLogin(false);
-          navigate("/");
-          console.log("Loged in");
+          navigate("/app");
         } else {
           setFailedLogin(true);
         }
@@ -37,7 +36,7 @@ export default function Login() {
 
   return (
     <div className="flex min-h-[100vh] flex-col items-center justify-center bg-gradient-to-b from-primary-950 via-primary-900 to-primary-950">
-      <h1 className="mb-10 text-7xl font-bold text-naranjo">CineConnect</h1>
+      <h1 className="mb-10 text-5xl font-bold text-naranjo">CineConnect</h1>
       <div className="flex w-4/5 max-w-[500px] flex-col items-center justify-center rounded-xl bg-white px-5 py-10 text-primary-900">
         <h1 className="text-4xl font-bold">Iniciar Sesión</h1>
         <div className="flex w-full max-w-[300px] flex-col items-center justify-center">
@@ -49,20 +48,27 @@ export default function Login() {
             <label>Nombre de Usuario</label>
             <input
               type="text"
-              className="my-1 rounded-md border border-gray-300 bg-gray-200 p-1"
+              placeholder="Usuario"
+              className="my-1 rounded-md border border-gray-300 bg-gray-200 p-1 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-2"
+              required
             ></input>
             <label>Contraseña</label>
             <input
               type="password"
-              className="my-1 rounded-md border border-gray-300 bg-gray-200 p-1"
+              placeholder="Ingrese su contraseña"
+              className="my-1 rounded-md border border-gray-300 bg-gray-200 p-1 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-2"
+              required
             ></input>
             <button
               type="submit"
-              className="mt-4 w-full rounded-md bg-primary-900 px-3  py-1 font-bold text-naranjo"
+              className="mt-4 w-full rounded-md bg-primary-900 px-3  py-1 font-bold text-naranjo "
             >
               Ingresar
             </button>
           </form>
+          {failedLogin ? (
+            <p className="text-red-500">Usuario o contraseña incorrectos</p>
+          ) : null}
           <div className="flex w-full justify-start p-4">
             <p
               onClick={() => {
