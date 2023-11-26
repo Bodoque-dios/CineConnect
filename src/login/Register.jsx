@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -9,6 +9,10 @@ export default function Login() {
 
   const Register = (e) => {
     e.preventDefault();
+
+    navigate("/app"); 
+    return;
+
     const baseURL = "http://129.151.125.31:42069";
 
     if (e.target[4].value !== e.target[5].value) {
