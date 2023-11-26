@@ -2,35 +2,6 @@ import React, { useEffect, useState } from "react";
 export default function Card({ onDelete, data}) {
   const [style, setStyle] = useState({});
 
-  const genreInfo = {
-    28: { name: 'Action', color: 'bg-red-500' },
-    12: { name: 'Adventure', color: 'bg-yellow-500' },
-    16: { name: 'Animation', color: 'bg-green-500' },
-    35: { name: 'Comedy', color: 'bg-blue-500' },
-    80: { name: 'Crime', color: 'bg-purple-500' },
-    99: { name: 'Documentary', color: 'bg-indigo-500' },
-    18: { name: 'Drama', color: 'bg-pink-500' },
-    10751: { name: 'Family', color: 'bg-yellow-300' },
-    14: { name: 'Fantasy', color: 'bg-orange-500' },
-    36: { name: 'History', color: 'bg-teal-500' },
-    27: { name: 'Horror', color: 'bg-red-800' },
-    10402: { name: 'Music', color: 'bg-blue-800' },
-    9648: { name: 'Mystery', color: 'bg-purple-800' },
-    10749: { name: 'Romance', color: 'bg-pink-800' },
-    878: { name: 'Science Fiction', color: 'bg-green-800' },
-    10770: { name: 'TV Movie', color: 'bg-yellow-800' },
-    53: { name: 'Thriller', color: 'bg-red-600' },
-    10752: { name: 'War', color: 'bg-green-600' },
-    37: { name: 'Western', color: 'bg-orange-800' },
-  };
-
-
-  const genre = data.genres
-
-  const [tags, setTags] = useState([
-     //lol, cambiar esto
-  ]);
-
   const swipeLeft = () => {
     setStyle({
       transform: `translate(-120vw) rotate(-20deg)`,
@@ -50,24 +21,16 @@ export default function Card({ onDelete, data}) {
     }, 500);
   };
 
-  /*const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjVjNzRhNjUwYzMyZmY5YzkzOGQ3NmE0ZTFkYTYxNCIsInN1YiI6IjY1NTYzODRmMDgxNmM3MDExYTBjNGNjMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.I3NmkHWwFLjYaNcRQywFtJYgHrWItIaYvY34cIwOrEI'
-
-*/
-
   return (
     <div
       style={style}
-      className="mx-4 flex w-full max-w-[400px] grow-0 animate-fade-in flex-col justify-center rounded-2xl bg-transparent text-white backdrop-opacity-5 md:max-w-[350px]"
+      className="mx-4 max-h-fit flex w-full max-w-[400px] grow-0 animate-fade-in flex-col justify-center rounded-2xl bg-transparent text-white backdrop-opacity-5 md:max-w-[350px]"
     >
       <div className="mb-3 rounded-2xl border-2 border-gray-900 bg-gray-950">
         <div className="relative flex flex-col">
           <div className="border-rojovintage-800 relative mb-2 overflow-hidden rounded-t-xl border-b-2">
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover max-h-[555px]"
               src={`https://www.themoviedb.org/t/p/original/${data.img}`}
               alt=""
             />
@@ -75,10 +38,6 @@ export default function Card({ onDelete, data}) {
               <h2 className="font-inter absolute bottom-2 z-10 p-2 text-4xl font-semibold">
                 {data.title}
               </h2>
-              <div className="Tags absolute bottom-2 flex py-2">
-                {/* Falta ver el overflow*/}
-                {tags}
-              </div>
             </div>
           </div>
         </div>
@@ -94,13 +53,6 @@ export default function Card({ onDelete, data}) {
   );
 }
 
-function Tag({ name, color }) {
-  return (
-    <div className={`mx-2 rounded-full p-2 ${color}`}>
-      <h3 className="text-center text-xs font-semibold">{name}</h3>
-    </div>
-  );
-}
 
 function Controls({ left, right }) {
   return (
@@ -139,91 +91,4 @@ function Controls({ left, right }) {
       </button>
     </div>
   );
-}
-
-function Rating({ age }) {
-  age = parseInt(age, 10);
-
-  // DPS SACAR ESTO
-  const ages = [12, 16, 18];
-  age = ages[Math.floor(Math.random() * ages.length)];
-
-  switch (age) {
-    case 12:
-      return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-rating-12-plus"
-          width="30"
-          height="33"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="#ffff"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-          <path d="M7 15v-6" />
-          <path d="M15.5 12h3" />
-          <path d="M17 10.5v3" />
-          <path d="M10 10.5a1.5 1.5 0 0 1 3 0c0 .443 -.313 .989 -.612 1.393l-2.388 3.107h3" />
-        </svg>
-      );
-      break;
-
-    case 16:
-      return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-rating-16-plus"
-          width="30"
-          height="33"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="#ffff"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-          <path d="M11.5 13.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
-          <path d="M7 15v-6" />
-          <path d="M15.5 12h3" />
-          <path d="M17 10.5v3" />
-          <path d="M10 13.5v-3a1.5 1.5 0 0 1 1.5 -1.5h1" />
-        </svg>
-      );
-      break;
-
-    case 18:
-      return (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-rating-18-plus"
-          width="30"
-          height="33"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="#ffff"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-          <path d="M11.5 10.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
-          <path d="M11.5 13.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
-          <path d="M7 15v-6" />
-          <path d="M15.5 12h3" />
-          <path d="M17 10.5v3" />
-        </svg>
-      );
-      break;
-    default:
-      return;
-      break;
-  }
 }
