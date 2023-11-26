@@ -19,8 +19,7 @@ export default function App() {
 
 const Carousel = () => {
   const initialCards = [
-    { id: 1, content: "Card 1" },
-    // Add more cards as needed
+    { id: 1, content: "Card 1" }, // coconut.jpg
   ];
 
   const [cards, setCards] = useState(initialCards);
