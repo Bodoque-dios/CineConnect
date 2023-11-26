@@ -37,7 +37,7 @@ export default function Login() {
 
   return (
     <div className="flex min-h-[100vh] flex-col items-center justify-center bg-gradient-to-b from-primary-950 via-primary-900 to-primary-950">
-      <h1 className="mb-10 text-7xl font-bold text-naranjo">CineConnect</h1>
+      <h1 className="mb-10 text-6xl font-bold text-rojovintage-500">CineConnect</h1>
       <div className="flex w-4/5 max-w-[500px] flex-col items-center justify-center rounded-xl bg-white px-5 py-10 text-primary-900">
         <h1 className="text-4xl font-bold">Iniciar Sesión</h1>
         <div className="flex w-full max-w-[300px] flex-col items-center justify-center">
@@ -58,7 +58,7 @@ export default function Login() {
             ></input>
             <button
               type="submit"
-              className="mt-4 w-full rounded-md bg-primary-900 px-3  py-1 font-bold text-naranjo"
+              className="mt-4 w-full rounded-md bg-primary-900 px-3  py-1 font-bold text-rojovintage-300"
             >
               Ingresar
             </button>
