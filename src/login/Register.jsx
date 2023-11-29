@@ -3,7 +3,7 @@ import { redirect, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [failedLogin, setFailedLogin] = React.useState(false);
+  const [unavailableUsername, setUnavailableUsername] = React.useState(false);
   const [failedRegister, setFailedRegister] = React.useState(false);
   const [diffPasswords, setDiffPasswords] = React.useState(false);
 
@@ -24,7 +24,7 @@ export default function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: e.target[0].value,
+        username: e.target[0].value.trim(),
         password: e.target[4].value,
         email: e.target[1].value,
         firstName: e.target[2].value,
@@ -37,9 +37,14 @@ export default function Login() {
         if (data.status === 200) {
           navigate("/login");
           //navigate("/");
+        } else if (data.status === 500) {
+          setUnavailableUsername(true);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setFailedRegister(true);
+      });
   };
 
   return (
@@ -103,7 +108,9 @@ export default function Login() {
             {diffPasswords ? (
               <p className="text-red-500">Las contraseñas no coinciden</p>
             ) : null}
-
+            {unavailableUsername ? (
+              <p className="text-red-500">Nombre de usuario no disponible</p>
+            ) : null}
             <button
               type="submit"
               className="mt-4 w-full rounded-md bg-primary-900 px-3  py-1 font-bold text-rojovintage-300"
