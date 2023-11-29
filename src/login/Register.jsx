@@ -10,10 +10,8 @@ export default function Login() {
   const Register = (e) => {
     e.preventDefault();
 
-    navigate("/app"); 
-    return;
 
-    const baseURL = "http://129.151.125.31:42069";
+    const baseURL =  import.meta.env.VITE_API_URL
 
     if (e.target[4].value !== e.target[5].value) {
       setDiffPasswords(true);
@@ -116,7 +114,7 @@ export default function Login() {
 
           <div className="flex w-full justify-start p-4">
             <p>
-              ¿Ya tienes una cuenta?{" "}
+              ¿Ya tienes una cuenta?
               <span
                 onClick={() => {
                   navigate("/app");

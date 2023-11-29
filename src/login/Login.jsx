@@ -8,13 +8,7 @@ export default function Login() {
   const verifyLogin = (e) => {
     e.preventDefault();
     
-    if (e.target[0].value === "Shrek" || e.target[1].value === "Pantano") {
-      navigate("/app");
-    } else {
-      setFailedLogin(true);
-      return;
-    }
-    const baseURL = "http://129.151.125.31:42069";
+    const baseURL =  import.meta.env.VITE_API_URL
 
     fetch(`${baseURL}/api/users/login`, {
       method: "POST",
@@ -38,7 +32,10 @@ export default function Login() {
           setFailedLogin(true);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) =>{ 
+        setFailedLogin(true);
+        console.error(err)}
+      );
   };
 
   return (
