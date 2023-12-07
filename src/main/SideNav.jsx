@@ -37,7 +37,7 @@ export default function SideNav({}) {
           </svg>
         </button>
 
-        <div id="side-nav" className="absolute right-0 z-20 m-0 flex h-screen w-[75vw] flex-col justify-between bg-gray-800 transition-all translate-x-[75vw] ">
+        <div id="side-nav" className="absolute right-0 -top-3 z-20 m-0 flex h-[100vh] w-[75vw] flex-col justify-between bg-gray-800 transition-all translate-x-[75vw] ">
           <div>
             <span className="grid" onClick={toggleVisbility}>
               <svg
@@ -47,7 +47,7 @@ export default function SideNav({}) {
                 height="40"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
-                stroke="#ffbf00"
+                stroke="#d65e5d"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -66,7 +66,7 @@ export default function SideNav({}) {
                 <h2 className="text-4xl text-rojovintage-500 font-bold">Shrek</h2>
             </div>
 
-            <div className="bg-naranjo w-10/12 h-0.5 m-auto rounded my-4 "> </div>
+            <div className="bg-rojovintage-500 w-10/12 h-0.5 m-auto rounded my-4 "> </div>
 
             <div className="flex flex-col w-full font-semibold items-start md:items-center p-4 text-2xl text-gray-500">
                 <Link to="/app" className={` my-1 w-full max-w-[300px] p-2 rounded-xl md:text-center ${currentPath =='/app' ? 'bg-rojovintage-700' : ''}`}>
@@ -85,23 +85,25 @@ export default function SideNav({}) {
           </div>
 
           <div id="bottom-thing" className="flex justify-end">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon-tabler-logout m-2 "
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="#ffbf00"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-              <path d="M9 12h12l-3 -3" />
-              <path d="M18 15l3 -3" />
-            </svg>
+            <Link to="/login" > 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon-tabler-logout m-2 "
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="#d65e5d"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                <path d="M9 12h12l-3 -3" />
+                <path d="M18 15l3 -3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>

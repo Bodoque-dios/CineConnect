@@ -138,7 +138,7 @@ function Mensaje({ wasSent, mensaje }) {
     );
   } else {
     return (
-      <div className="mr-4 mt-2 h-fit w-fit self-end rounded bg-naranjo p-2 py-2">
+      <div className="mr-4 mt-2 h-fit w-fit self-end rounded bg-rojovintage-500 p-2 py-2">
         {mensaje}
       </div>
     );
@@ -174,10 +174,10 @@ function ChatInput({ addmessage }) {
     >
       <input
         type="text"
-        className="h-10 w-full rounded-full bg-midnight-blue-700 pl-4 text-lg text-white placeholder-white"
+        className="h-10 w-full rounded-full bg-midnight-blue-900 pl-4 text-lg text-white placeholder-white"
         placeholder="Escribe un mensaje"
       />
-      <button className="m-2 flex h-10 w-10 items-center justify-center rounded-full bg-naranjo">
+      <button className="m-2 flex h-10 w-10 items-center justify-center rounded-full bg-rojovintage-600">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-brand-telegram"

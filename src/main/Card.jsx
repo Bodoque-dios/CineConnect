@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-export default function Card({ onDelete, data}) {
+export default function Card({ onDelete, onRate, data}) {
   const [style, setStyle] = useState({});
 
   const swipeLeft = () => {
@@ -10,6 +10,7 @@ export default function Card({ onDelete, data}) {
     setTimeout(() => {
       onDelete();
     }, 500);
+    onRate(true);
   };
   const swipeRight = () => {
     setStyle({
@@ -19,8 +20,10 @@ export default function Card({ onDelete, data}) {
     setTimeout(() => {
       onDelete();
     }, 500);
+    onRate(false);
   };
 
+  // TODO: ajustar tamaño de la tarjeta/imágenes con texto pa q sean iguales
   return (
     <div
       style={style}
@@ -30,7 +33,7 @@ export default function Card({ onDelete, data}) {
         <div className="relative flex flex-col">
           <div className="border-rojovintage-800 relative mb-2 overflow-hidden rounded-t-xl border-b-2">
             <img
-              className="h-full w-full object-cover max-h-[555px]"
+              className="h-full w-full object-cover max-h-[70vh] "
               src={`https://www.themoviedb.org/t/p/original/${data.img}`}
               alt=""
             />

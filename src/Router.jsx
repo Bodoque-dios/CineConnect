@@ -23,9 +23,6 @@ export default function Router() {
             <Route path="/register" element={<Register />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/ajustes" element={<Ajustes />} />
-
-
-
         </Routes>
     </BrowserRouter>
     )

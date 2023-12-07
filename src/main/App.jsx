@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 // for Vite  applications
 const key =  import.meta.env.VITE_TMDB_KEY
+const APIUrl = import.meta.env.VITE_API_URL
 
 export default function App() {
   return (
@@ -44,8 +45,8 @@ const Carousel = () => {
 
 
   const getMovies = async () => {
-    const url = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
-    const options = {
+    let url = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
+    let options = {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -61,6 +62,47 @@ const Carousel = () => {
       .catch(err => console.error('error:' + err));
   }
 
+  const rateMovie = (id) => (liked) => {
+
+    let url = `${APIUrl}/api/movies/rate`;
+    let options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        // Authorization: key TODO: usar token dado al logearse
+      },
+      body: JSON.stringify({
+        // userid: 1,
+        movieId: id,
+        liked: liked
+      })
+    };
+
+    /*
+    fetch(url, options)
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(err => console.error('error:' + err));
+     */
+    
+
+   // 'https://api.themoviedb.org/3/movie/69?language=en-US';
+
+    /* 
+     TODO: this endpoint
+     
+    fetch(url, options)
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(err => console.error('error:' + err));
+      */
+    console.log(`rated ${id} as ${liked ? 'liked' : 'disliked'}`)
+  }
+
 
   useEffect(() => {
     getMovies( )
@@ -68,13 +110,27 @@ const Carousel = () => {
   
 
   return (
-   
-      <div style={{ display: "flex", justifyContent: "center" }} className=" ease-in-out duration-900">
-        <Card
-          key={cards[currentIndex].id}
-          data={cards[currentIndex].content}
-          onDelete={() => removeCard(cards[currentIndex].id)}
-        />
+
+
+      <div 
+        style={{ display: "flex", justifyContent: "center" }} 
+        className=" ease-in-out duration-900"
+      >
+        {cards.length > 0 ? (
+          
+          <Card
+            key={cards[currentIndex].id}
+            data={cards[currentIndex].content}
+            onDelete={() => removeCard(cards[currentIndex].id)}
+            onRate={rateMovie(cards[currentIndex].id)}
+          />
+        ) : (
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-4xl font-semibold text-center text-white">
+              ¡Ya no hay más películas!
+            </h1>
+          </div>
+        )}
       </div>
   
   
