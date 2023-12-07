@@ -45,7 +45,7 @@ const Carousel = () => {
 
 
   const getMovies = async () => {
-    let url = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
+    let url = 'https://api.themoviedb.org/3/trending/movie/week?language=es-es';
     let options = {
       method: 'GET',
       headers: {
