@@ -45,7 +45,7 @@ export default function Card({ onDelete, onRate, data}) {
           </div>
         </div>
 
-        <p className="mb-3 max-h-[6.3rem] px-3 text-justify text-sm overflow-hidden">
+        <p className="mb-3 max-h-[4rem] px-3 text-justify text-sm overflow-hidden ">
           {data.overview}
         </p>
       </div>
